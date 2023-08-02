@@ -52,7 +52,7 @@ profilePicture = "images/profile.jpg"
 keywords = "wiigg engineer software azure tech cloud devops kubernetes sustainability green"
 favicon = "favicons/"
 customCss = []
-gtagId = "G-45CVV0B7YZ"
+gtagId = "G-WCH2FPCW20"
 
 ## Math settings
 [params.math]
