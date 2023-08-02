@@ -1,5 +1,5 @@
 ---
-title: "On Completing MCIT at the University of Pennsylvania"
+title: "On Completing MCIT"
 date: 2022-12-30T15:38:44+01:00
 Description: "Celebrating the cumulation of my Master's degree in Computer Science"
 Tags: [mcit, computer science]
