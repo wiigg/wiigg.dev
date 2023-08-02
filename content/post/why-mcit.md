@@ -9,8 +9,6 @@ DisableComments: false
 
 It has been over a year since [being admitted](https://twitter.com/wiigg/status/1139586622071234561) to the [Master of Computer and Information Technology (MCIT)](https://onlinelearning.seas.upenn.edu/mcit/) degree at UPenn and in that time I've been asked by colleagues, friends and family, "Why MCIT"?
 
-{{< twitter_simple 1139586622071234561 >}}
-
 ## So, why MCIT?
 
 Before jumping into the answer to that question right away, it's worth explaining why I aspire to a Master's degree in the first place. Ever since completing my undergraduate degree six years ago, I've had an unassailable desire to continue my education. I've always had a love of learning and stretching my mind to its limits. The vigorous in-depth pursuit of a field greatly appeals to me, plus the extra line on my CV is no bad thing.
