@@ -1,5 +1,5 @@
 ---
-title: "MCIT, Complete"
+title: "On Completing MCIT at the University of Pennsylvania"
 date: 2022-12-30T15:38:44+01:00
 Description: "Celebrating the cumulation of my Master's degree in Computer Science"
 Tags: [mcit, computer science]
@@ -7,6 +7,8 @@ Categories: [university]
 DisableComments: false
 ---
 
-It is with great satisfaction that I announce the completion of my Master's degree in Computer Science at University of Pennsylvania. This academic journey has been a challenging yet enriching experience that demanded dedication, perseverance, and the ability to balance a full-time role at Microsoft with part-time studies. The gratification I feel is immeasurable, knowing that I have worked tirelessly to achieve my academic goals while still maintaining professional responsibilities - not to mention an internal job move and the purchase of my first home.
+Well, I've finally done it - this week marks the completion of my Master's degree in Computer Science (MCIT) at University of Pennsylvania. It's been an intense yet enriching ride, requiring copious amounts of resilience, perseverance and the juggling of a full-time role at Microsoft with life's other responsibilities.
 
-Throughout the MCIT programme, I have acquired a plethora of technical skills and knowledge, solidifying my fundamentals in computer science. I have also gained a deep appreciation for the ever-evolving nature of this field, which constantly challenges and inspires me to stay on top of the latest advancements. Overall, this journey has been an excellent opportunity to develop my critical thinking and problem-solving skills, and I am confident that it will be a significant asset as I embark on new endeavors.
+Three years has flashed by in an instant. It only seems that yesterday I was writing my personal statement and asking trusted friends and colleagues for their references. It's hard to truly grasp just how far I've come since then; newfound problem-solving skills and comprehension of computer science are now taken for granted.
+
+As I step into what's next, I'm filled with intrigue about where my augmented map of the world will take me. The light in the cave of knowledge now burns brighter.
