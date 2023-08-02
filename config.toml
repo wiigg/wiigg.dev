@@ -15,9 +15,6 @@ enableRobotsTXT = true
 # Enable Disqus
 #disqusShortname = ""
 
-# Google Analytics
-googleAnalytics = "UA-90548533-2"
-
 # Syntax highlighting
 pygmentsUseClasses = true   
 pygmentsCodeFences = true
@@ -52,10 +49,10 @@ title = "./wiigg"
 author = "Danny Wigg"
 description = "Technologist, strategist, engineer"
 profilePicture = "images/profile.jpg"
-keywords = "wiigg devops engineer cloud native kubernetes sustainability green software tech"
+keywords = "wiigg engineer software azure tech cloud devops kubernetes sustainability green"
 favicon = "favicons/"
 customCss = []
-gtagId = "G-272395525"
+gtagId = "G-45CVV0B7YZ"
 
 ## Math settings
 [params.math]
@@ -72,11 +69,6 @@ url = "https://github.com/wiigg/"
 icon = "fab fa-linkedin"
 title = "Linkedin"
 url = "https://www.linkedin.com/in/dannywigg/"
-
-[[params.socialIcons]]
-icon = "fab fa-mastodon"
-title = "Mastodon"
-url = "https://mastodonapp.uk/@wiigg"
 
 ## Menu items
 [menu]
