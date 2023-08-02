@@ -7,7 +7,7 @@ Categories: [university]
 DisableComments: false
 ---
 
-Well, I've finally done it - this week marks the completion of my master's degree in Computer Science (MCIT) at University of Pennsylvania. It's been an intense yet enriching ride, requiring copious amounts of resilience, perseverance and the juggling of a full-time role at Microsoft with life's other responsibilities.
+Well, I've finally done it - this week marks the completion of my master's degree in computer science (MCIT) at University of Pennsylvania. It's been an intense yet enriching ride, requiring copious amounts of resilience, perseverance and the juggling of a full-time role at Microsoft with life's other responsibilities.
 
 Three years has flashed by in an instant. It only seems that yesterday I was writing my personal statement and asking trusted friends and colleagues for their references. It's hard to truly grasp just how far I've come since then; newfound problem-solving skills and comprehension of computer science are now taken for granted.
 
