@@ -11,13 +11,13 @@ It has been over a year since [being admitted](https://twitter.com/wiigg/status/
 
 ## So, why MCIT?
 
-Before jumping into the answer to that question right away, it's worth explaining why I aspire to a Master's degree in the first place. Ever since completing my undergraduate degree six years ago, I've had an unassailable desire to continue my education. I've always had a love of learning and stretching my mind to its limits. The vigorous in-depth pursuit of a field greatly appeals to me, plus the extra line on my CV is no bad thing.
+Before jumping into the answer to that question right away, it's worth explaining why I aspire to a master's degree in the first place. Ever since completing my undergraduate degree six years ago, I've had an unassailable desire to continue my education. I've always had a love of learning and stretching my mind to its limits. The vigorous in-depth pursuit of a field greatly appeals to me, plus the extra line on my CV is no bad thing.
 
 My undergraduate degree is in business management, meaning I have no formal background in computer science; everything I knew before starting the programme was entirely self-taught. I've been tinkering with computers and code for as long as I can remember and the idea of bringing my understanding of the two fields together was (and of course, still is) attractive. Lack of training hasn't hindered me so far, though seeing as I have at least 30 years of my career ahead of me, in conjunction with the increasing pace in which the world is being [eaten by software](https://a16z.com/2011/08/20/why-software-is-eating-the-world/), my reasoning has only solidified.
 
 Now, onto the degree itself.
 
-University of Pennsylvania is [one of the most highly regarded](https://www.timeshighereducation.com/world-university-rankings/university-pennsylvania) universities in the world and the programme is attestation to that, giving direct access to its world-renowned faculty who are highly recognised in their respective fields. Indeed, the value of being able to ask professors their thoughts on contemporary topics during office hours cannot be understated.
+University of Pennsylvania is [one of the most](https://www.topuniversities.com/universities/university-pennsylvania) [highly regarded](https://www.timeshighereducation.com/world-university-rankings/university-pennsylvania) universities in the world and the programme is attestation to that, giving direct access to its world-renowned faculty who are highly recognised in their respective fields. Indeed, the value of being able to ask professors their thoughts on contemporary topics during office hours cannot be understated.
 
 Anecdotally, so far I have found the course materials to be stimulating, coursework and exams challenging, and community inviting. To learn from my fellow classmates who are from a hugely diverse set of backgrounds, in terms of vocation, nationality and gender for example, adds to the richness of the experience. Everyone is supportive and courses are set up in such a way that it's easy to interact and seek guidance on a particuarly challenging concept.
 
