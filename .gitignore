@@ -1,0 +1,4 @@
+public
+resources/_gen/
+resources/_processed/
+.hugo_build.lock

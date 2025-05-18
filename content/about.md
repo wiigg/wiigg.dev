@@ -4,7 +4,7 @@ date: 2020-05-17T13:35:42+01:00
 draft: false
 ---
 
-My name is Danny Wigg, and I'm based in one of the leafy home counties of London, UK. I'm a software engineer, technology stategist, and solution architect at Microsoft. I also studied computer science at the University of Pennsylvania.
+My name is Danny Wigg, and I'm based in one of the leafy home counties of London, UK. I'm a software engineer, technology stategist, and solutions architect at OpenAI. Previously, I've worked at Microsoft and Shopify. I also studied computer science at the University of Pennsylvania.
 
 I am strong believer in not only using technology to solve interesting problems, but getting it into the hands of people who can benefit from it the most.
 

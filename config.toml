@@ -3,25 +3,20 @@ languageCode = "en"
 DefaultContentLanguage = "en"
 title = "./wiigg"
 
-# theme as hugo module
-#theme = "github.com/lxndrblz/anatole"
-# theme as git submodule
-theme = "anatole"
-
 summarylength = 10
 enableEmoji = true
 enableRobotsTXT = true
 
-# Enable Disqus
-#disqusShortname = ""
-
 # Syntax highlighting
-pygmentsUseClasses = true   
+pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 
-# Localized dates requires Hugo version 0.87.0
 localizedDates = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/lxndrblz/anatole"
 
 [markup]
     [markup.goldmark]
@@ -51,8 +46,10 @@ description = "Technologist, strategist, engineer"
 profilePicture = "images/profile.jpg"
 keywords = "wiigg engineer software azure tech cloud devops kubernetes sustainability green"
 favicon = "favicons/"
-customCss = []
-gtagId = "G-WCH2FPCW20"
+
+[services]
+  [services.googleAnalytics]
+  ID = 'G-LP9LR8C7GM'
 
 ## Math settings
 [params.math]
