@@ -49,7 +49,7 @@ favicon = "favicons/"
 
 [services]
   [services.googleAnalytics]
-  ID = 'G-LP9LR8C7GM'
+  id = "G-LP9LR8C7GM"
 
 ## Math settings
 [params.math]
