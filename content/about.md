@@ -4,7 +4,7 @@ date: 2020-05-17T13:35:42+01:00
 draft: false
 ---
 
-I'm Danny Wigg, an applied AI engineer at OpenAI, based in one of the leafy home counties near London. Previously, I've worked at Microsoft and Hewlett Packard Enterprise. My work has spanned the full stack, from hardware to AI. I also studied computer science at the University of Pennsylvania.
+I'm Danny Wigg, an applied AI engineer at OpenAI, based in one of the leafy home counties near London. Previously, I've worked at Microsoft and Hewlett Packard Enterprise. Over my career, I've worked across the stack, from hardware to AI. I also studied computer science at the University of Pennsylvania.
 
 I care about building useful technology and getting it into the hands of the people who can benefit from it.
 
