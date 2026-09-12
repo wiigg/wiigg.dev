@@ -11,3 +11,5 @@ I care about building useful technology and getting it into the hands of the peo
 Outside work, I enjoy running, hiking and getting lost in a good book. I'm also working on my German and usually learning something new that's caught my interest.
 
 Get in touch at hello \[at] wiigg \[dot] dev.
+
+Everything I write on this site reflects my personal views and does not represent those of my current or former employers.

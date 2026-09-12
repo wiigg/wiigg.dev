@@ -30,6 +30,30 @@ hugo server
 Open http://localhost:1313. Hugo downloads the theme version pinned in `go.mod`
 automatically on the first build.
 
+To preview unpublished posts locally, run `hugo server --buildDrafts`. This also
+includes the archived MCIT drafts; production builds exclude all drafts.
+
+## Writing posts
+
+Posts live in `content/post/`. Keep `draft: true` in the front matter until a
+post is ready to publish. Titles retain their written casing, and dates use
+British formatting.
+
+The homepage shows approximately 50-word automatic summaries with a "Read more"
+link for truncated articles. For an intentional introduction, set `summary` in
+the post's front matter or put `<!--more-->` after the opening paragraphs. Set
+`description` separately for the page's search and sharing description.
+
+For longer articles with headings, add `toc: true` to the front matter to show
+a table of contents. Leave it unset on short essays.
+
+The RSS link points to `/post/index.xml` and includes full articles. Page
+metadata uses `static/images/social-card.png` unless a post specifies its own
+`images` list. Homepage introduction text lives in `content/_index.md`.
+
+Editable SVG originals sit alongside the sharing image and favicons. Keep the
+PNG and ICO exports in sync with those originals when changing the branding.
+
 ## Production build
 
 ```sh

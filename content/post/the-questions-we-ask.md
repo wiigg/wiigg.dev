@@ -1,0 +1,53 @@
+---
+title: "The questions we ask"
+date: 2026-09-12T17:54:29+01:00
+draft: false
+Description: "As AI gets better at producing answers, domain expertise helps us recognise which questions are worth asking and which results matter."
+Tags: [ai, expertise, research]
+Categories: [technology]
+DisableComments: false
+---
+
+Earlier this week, OpenAI announced that an internal model had produced a solution to the Navier-Stokes existence and smoothness problem, one of the Millennium Prize Problems and a question unresolved for roughly 90 years. The result itself is remarkable, but I found the account of [how the researchers got there](https://openai.com/index/navier-stokes-solution/) almost as interesting as the proof itself.
+
+The system involved approximately 10,000 concurrent agents, exchanging 2.7 million messages and generating around 130 billion output tokens. Yet the researchers did not simply give the system the problem and allocate compute; they tried different formulations, directed agents towards easier, related questions and reassigned resources between different lines of investigation. When the system produced a promising result for the Euler equations, they recognised the significance and shifted effort towards Navier-Stokes, feeding the result back into it.
+
+The system produced the proof, while it was humans that played an important role in determining where the search should go next. This process illustrates a broader dynamic I expect to become more important as model intelligence increases. As the cost of generating answers falls, a large share the value may move towards deciding which questions deserve to be answered.
+
+One of my English teachers at secondary school once told my class that we tend to celebrate the people who answer difficult questions more than the people who ask insightful ones. I have returned to the idea occasionally ever since. As models become increasingly capable of producing answers, the asymmetry becomes easier to see.
+
+## Knowing what to ask
+
+For most of history, formulating a difficult question and answering it have been tightly coupled. Solving a hard problem in say, mathematics, engineering or science generally required enough expertise both to represent the problem correctly and to perform much of the intellectual work needed to resolve it.
+
+AI is beginning to loosen this coupling (or one might argue it already has). Models can already write code, analyse data, search large bodies of information and explore candidate solutions at a scale and speed unavailable to an individual. As model capabilities improve and cost per task falls, producing plausible answers will become progressively cheaper.
+
+However, cheaper answers do not imply cheaper expertise. They may instead change where expertise creates the most leverage.
+
+This distinction becomes especially important when selecting the wrong direction is expensive. If a model can answer a question in a few minutes, a poor question may carry little cost. In research, engineering and other open-ended work, however, the dominant cost often lies in pursuing an unproductive direction for days, weeks or months. Under those conditions, better judgement about what to investigate can dominate marginal improvements in the ability to execute the investigation itself.
+
+This idea is not new. A 1979 paper by Naomi Miyake and Donald Norman captured it well in [To ask a question, one must know enough to know what is not known](https://doi.org/10.1016/S0022-5371(79)90200-7). Their experiments examined how prior knowledge affected question asking during learning. As material became more difficult, participants with greater background knowledge asked more questions, while partipants with less asked fewer. Without a sufficiently developed model of a subject, identifying the boundary of one's own understanding becomes difficult.
+
+The finding makes intuitive sense. Deep knowledge provides a representation of a domain against which gaps, inconsistencies and assumptions that might be wrong become clear. A newcomer to a subject can ask questions about what they do not understand, but it is much harder for them to identify what everyone else might overlook.
+
+Research on expertise suggests something similar. In a [well-known study of physicists](https://doi.org/10.1207/s15516709cog0502_2), novices tended to classify problems according to their surface features, while experts grouped the same problems according to the underlying physical principles required to solve them. Expertise altered how a problem is represented before any attempt at a solution began.
+
+When applied to AI, the implication can be significant. Two people can have access to exactly the same model while possessing very different capabilities. Someone with decades of experience in a field may direct the model towards questions that would never occur to somebody encountering the subject for the first time. They know which approaches have repeatedly failed, which assumptions break down, which results are superficially convincing but misleading and which apparently minor observation changes the structure of the problem.
+
+In that sense, a good question can therefore encode a surprising amount of compressed knowledge.
+
+## More than prompting
+
+This advantage has little to do with being particularly good at instructing a model. As models become better at inferring intent from incomplete or imprecise instructions, the value of clever phrasing is diminishing. The skill more likely to stand the test of time is deciding which problems deserve the model's intelligence and evaluating the results.
+
+The Navier-Stokes researchers were making decisions of precisely this kind. Is there a simpler adjacent problem whose solution would change this search? Which of several approaches has the higest expected value? Does an intermediate result justify reallocating finite compute? Which information should propogate between groups of agents? When should a seemingly unpromising approach be abandoned?
+
+These are allocation problems as much as reasoning problems. They require a rich understanding of the domain to distinguish signal from noise and to recognise when new evidence should change the strategy.
+
+There is an obvious counterargument. Models will become better at posing questions too. They can already generate hypotheses, propose follow-up experiments, identify gaps in an argument and critique research directions. I expect frontier models to become substantially better at deciding which questions are worth pursuing, not merely at answering questions supplied by humans.
+
+AI also compresses the time required to acquire domain knowledge. Someone entering a field can use a model to build background knowledge, interrogate unfamiliar concepts, synthesise prior work and surface avenues they might otherwise have missed. However, I am less convinced it will eliminate the gap entirely, at least over the near term.
+
+We naturally celebrate the answer because answers are visible. The Navier-Stokes proof will receive far more attention than the sequence of judgements which guided the system towards it. Yet as the frontier of model intelligence advances and the cost of generating solutions continues to fall, the value of knowing where to spend intelligence and ask good questions will correspondingly rise.
+
+*Important note: these are my current views, looking roughly 12 months ahead. Beyond this timeframe, the picture becomes much less clear. Given the pace of progress, I expect parts of this argument may age quickly and I may well change my mind.* 🙂

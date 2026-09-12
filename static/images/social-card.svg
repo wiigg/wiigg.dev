@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Danny Wigg — Applied AI engineer at OpenAI</title>
+  <desc>Danny Wigg's personal website, wiigg.dev.</desc>
+  <rect width="1200" height="630" fill="#f4f4f4"/>
+  <text x="88" y="108" fill="#192229" font-family="Menlo, monospace" font-size="28">./wiigg</text>
+  <path d="M88 147H1112" stroke="#d5dade" stroke-width="1"/>
+  <text x="84" y="307" fill="#192229" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700" letter-spacing="-3">Danny Wigg</text>
+  <text x="88" y="369" fill="#192229" font-family="Arial, Helvetica, sans-serif" font-size="32">Applied AI engineer at OpenAI</text>
+  <path d="M88 415H152" stroke="#68869b" stroke-width="4"/>
+  <text x="88" y="551" fill="#53636e" font-family="Arial, Helvetica, sans-serif" font-size="25">wiigg.dev</text>
+</svg>

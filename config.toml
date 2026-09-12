@@ -1,9 +1,9 @@
 baseURL = "https://wiigg.dev/"
-locale = "en"
+locale = "en-GB"
 DefaultContentLanguage = "en"
 title = "./wiigg"
 
-summarylength = 10
+summarylength = 50
 enableEmoji = true
 enableRobotsTXT = true
 
@@ -38,10 +38,20 @@ enableRobotsTXT = true
 
 [params]
 localizedDates = true
+indexDateFormat = "2 January 2006"
+singleDateFormat = "2 January 2006"
+listDateFormat = "2 Jan"
+disableTitleCapitalization = true
+disableArchiveTitleStyling = true
+reversepagetitle = true
+mainSections = ["post"]
+readMore = true
+rssFullContent = true
 title = "./wiigg"
 author = "Danny Wigg"
-description = "Technologist, strategist, engineer"
+description = "Applied AI engineer at OpenAI"
 profilePicture = "images/profile.jpg"
+images = ["images/social-card.png"]
 keywords = "wiigg engineer software azure tech cloud devops kubernetes sustainability green"
 favicon = "favicons/"
 
@@ -64,6 +74,11 @@ url = "https://github.com/wiigg/"
 icon = "fa-brands fa-linkedin"
 title = "Linkedin"
 url = "https://www.linkedin.com/in/dannywigg/"
+
+[[params.socialIcons]]
+icon = "fa-solid fa-rss"
+title = "Subscribe via RSS"
+url = "/post/index.xml"
 
 ## Menu items
 [menu]
