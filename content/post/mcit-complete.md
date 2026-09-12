@@ -1,6 +1,7 @@
 ---
 title: "On Completing MCIT"
 date: 2022-12-30T15:38:44+01:00
+draft: true
 Description: "Celebrating the cumulation of my master's degree in Computer Science"
 Tags: [mcit, computer science]
 Categories: [university]

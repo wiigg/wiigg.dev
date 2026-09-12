@@ -1,6 +1,7 @@
 ---
 title: "Why MCIT?"
 date: 2020-07-21T17:33:32+01:00
+draft: true
 Description: "Why I chose to pursue a Master's degree in Computer Science"
 Tags: [mcit, computer science]
 Categories: [university]
