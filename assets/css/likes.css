@@ -7,6 +7,54 @@
   margin: 2.8rem 0 1rem;
 }
 
+.post-likes--top {
+  margin: 0;
+}
+
+.post__meta--with-likes {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+}
+
+.post__meta--with-likes .post__meta-item {
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.post__meta--with-likes .post__meta-item:not(.post__meta-item--likes) {
+  line-height: 44px;
+  white-space: nowrap;
+}
+
+.post__meta-item--likes {
+  flex: 0 1 auto;
+  min-width: 44px;
+}
+
+.post__meta-item--likes:has(.post-likes[hidden]) {
+  display: none;
+}
+
+.post-likes--top .post-likes__button {
+  flex-shrink: 0;
+  font-size: inherit;
+}
+
+.post-likes--top .post-likes__status {
+  flex-basis: 100%;
+}
+
+.post-likes--top .post-likes__status[data-transient="true"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .theme--dark .post-likes {
   --like-accent: #f2a1b7;
 }

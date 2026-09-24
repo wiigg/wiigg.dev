@@ -38,7 +38,7 @@ function storage(initial = {}, blocked = false) {
   };
 }
 
-function harness({ replies = [], savedId, localBlocked = false, sessionBlocked = false, sessionId } = {}) {
+function widgetControl() {
   const button = element();
   const count = element();
   const status = element();
@@ -54,6 +54,11 @@ function harness({ replies = [], savedId, localBlocked = false, sessionBlocked =
     dataset: { postId: "the-questions-we-ask", endpoint: "https://likes.example.test/" },
     querySelector: (selector) => children[selector],
   };
+  return { widget, button, count, status, retry };
+}
+
+function harness({ replies = [], savedId, localBlocked = false, sessionBlocked = false, sessionId, widgetCount = 1 } = {}) {
+  const controls = Array.from({ length: widgetCount }, widgetControl);
   const local = storage(savedId ? { [storageKey]: savedId } : {}, localBlocked);
   const session = storage(sessionId ? { [storageKey]: sessionId } : {}, sessionBlocked);
   const calls = [];
@@ -62,7 +67,7 @@ function harness({ replies = [], savedId, localBlocked = false, sessionBlocked =
   let nextTimer = 0;
 
   vm.runInNewContext(source, {
-    document: { querySelector: () => widget },
+    document: { querySelectorAll: () => controls.map(({ widget }) => widget) },
     localStorage: local,
     sessionStorage: session,
     URL,
@@ -80,7 +85,7 @@ function harness({ replies = [], savedId, localBlocked = false, sessionBlocked =
   });
 
   return {
-    widget, button, count, status, retry, calls, local, session, timers,
+    ...controls[0], controls, calls, local, session, timers,
     get generatedIds() { return generatedIds; },
   };
 }
@@ -99,6 +104,45 @@ test("first visit reads the public count without creating an identity", async ()
   assert.equal(ui.calls[0].url.href, "https://likes.example.test/likes?post=the-questions-we-ask");
   assert.equal(ui.calls[0].credentials, "omit");
   assert.equal(ui.timers.size, 0);
+});
+
+test("top and bottom hearts share one request, identity and pending write", async () => {
+  let resolveWrite;
+  const write = new Promise((resolve) => { resolveWrite = resolve; });
+  const ui = harness({ widgetCount: 2, replies: [response(0, false), () => write, response(0, false)] });
+  const [top, bottom] = ui.controls;
+  await flush();
+  assert.equal(ui.calls.length, 1);
+  assert.ok(ui.controls.every(({ widget, count }) => !widget.hidden && count.hidden));
+  top.button.click();
+  bottom.button.click();
+  assert.equal(ui.calls.length, 2, "Both controls share a single in-flight mutation");
+  assert.ok(ui.controls.every(({ button, count }) => button.disabled && count.textContent === "1"));
+  resolveWrite(response(1, true));
+  await flush();
+  assert.ok(ui.controls.every(({ button, count }) => button.attributes["aria-pressed"] === "true" && !count.hidden));
+  bottom.button.click();
+  await flush();
+  assert.equal(ui.calls[2].method, "DELETE");
+  assert.equal(ui.generatedIds, 1);
+  assert.ok(ui.controls.every(({ button, count }) => button.attributes["aria-pressed"] === "false" && count.hidden));
+  assert.equal(bottom.status.attributes["aria-live"], "polite");
+  assert.equal(top.status.attributes["aria-live"], "off");
+});
+
+test("a failure in one heart can be reconciled from the other without repeating a saved vote", async () => {
+  const ui = harness({ widgetCount: 2, replies: [response(4, false), new Error("Response lost"), response(5, true)] });
+  const [top, bottom] = ui.controls;
+  await flush();
+  top.button.click();
+  await flush();
+  assert.ok(ui.controls.every(({ count, retry, button }) => count.textContent === "4" && !retry.hidden && button.disabled));
+  bottom.retry.click();
+  await flush();
+  assert.deepEqual(ui.calls.map(({ method }) => method), ["GET", "POST", "GET"]);
+  assert.ok(ui.controls.every(({ count, retry, button }) => count.textContent === "5" && retry.hidden && !button.disabled));
+  assert.equal(bottom.status.attributes["aria-live"], "polite");
+  assert.equal(top.status.attributes["aria-live"], "off");
 });
 
 test("returning visitors get authoritative liked state and can undo it", async () => {

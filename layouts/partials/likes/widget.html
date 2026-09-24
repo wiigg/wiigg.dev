@@ -1,17 +1,24 @@
-{{- if and (partial "likes/published.html" .) .Site.Params.likes.endpoint -}}
-  {{- $id := partial "likes/id.html" . -}}
-  {{- $styles := resources.Get "css/likes.css" | minify | fingerprint -}}
-  {{- $script := resources.Get "js/likes.js" | minify | fingerprint -}}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" />
-  <div class="post-likes" data-post-likes data-post-id="{{ $id }}" data-endpoint="{{ .Site.Params.likes.endpoint }}" hidden>
-    <button class="post-likes__button" type="button" title="Like this article" aria-label="Like this article" aria-pressed="false" aria-describedby="post-likes-status" disabled>
+{{- $page := .Page -}}
+{{- $position := .Position -}}
+{{- if and (partial "likes/published.html" $page) $page.Site.Params.likes.endpoint -}}
+  {{- $id := partial "likes/id.html" $page -}}
+  {{- $statusID := printf "post-likes-status-%s" $position -}}
+  {{- if eq $position "top" -}}
+    {{- $styles := resources.Get "css/likes.css" | minify | fingerprint -}}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" />
+  {{- end -}}
+  <div class="post-likes post-likes--{{ $position }}" data-post-likes data-post-id="{{ $id }}" data-endpoint="{{ $page.Site.Params.likes.endpoint }}" hidden>
+    <button class="post-likes__button" type="button" title="Like this article" aria-label="Like this article" aria-pressed="false" aria-describedby="{{ $statusID }}" disabled>
       <svg class="post-likes__heart" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
         <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
       </svg>
       <span class="post-likes__count" data-like-count aria-hidden="true" hidden></span>
     </button>
-    <p class="post-likes__status" id="post-likes-status" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p class="post-likes__status" id="{{ $statusID }}" role="status" aria-live="{{ if eq $position "top" }}polite{{ else }}off{{ end }}" aria-atomic="true"></p>
     <button class="post-likes__retry" type="button" hidden>Retry</button>
   </div>
-  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{- if eq $position "top" -}}
+    {{- $script := resources.Get "js/likes.js" | minify | fingerprint -}}
+    <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{- end -}}
 {{- end -}}

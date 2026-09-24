@@ -56,11 +56,12 @@ PNG and ICO exports in sync with those originals when changing the branding.
 
 ## Article likes
 
-Published posts can show an anonymous heart button. The Hugo site stays on
-GitHub Pages; `likes-api/` contains a Cloudflare Worker and a D1 database that
-store the likes. The only new development dependency is Cloudflare's Wrangler
-CLI, used to run, test and deploy the Worker; the deployed code has no package
-dependencies.
+Published posts can show anonymous heart buttons before the date and reading time
+and after the article. Both controls share the same count and toggle state.
+The Hugo site stays on GitHub Pages; `likes-api/` contains a Cloudflare Worker
+and a D1 database that store the likes. The only new development dependency is
+Cloudflare's Wrangler CLI, used to run, test and deploy the Worker; the deployed
+code has no package dependencies.
 
 `params.likes.endpoint` in `config.toml` is the Worker origin, without `/likes`.
 An empty endpoint disables the button. The public `/likes.json` manifest lists
@@ -160,5 +161,6 @@ hugo --gc --minify --environment production
 Commit both `go.mod` and `go.sum` so builds use the same theme release.
 
 The local `layouts/_default/single.html` overrides Anatole's article template
-to add the likes button. When updating the theme, compare it with the new
-upstream template and preserve the `likes/widget.html` partial call.
+to add the likes buttons. When updating the theme, compare it with the new
+upstream template and preserve both `likes/widget.html` partial calls, passing
+the page and the `top` or `bottom` position. The top call loads the shared assets.

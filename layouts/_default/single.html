@@ -1,4 +1,4 @@
-{{/* Anatole v1.20.0 single.html; local change: likes partial after .Content.
+{{/* Anatole v1.20.0 single.html; local changes: likes partials within metadata and after .Content.
      Upstream: https://github.com/lxndrblz/anatole/blob/v1.20.0/layouts/_default/single.html
      MIT licence retained in ANATOLE-LICENSE.txt. */}}
 {{ define "main" }}
@@ -21,7 +21,11 @@
         <h1>{{ title .Title }}</h1>
       {{ end }}
       {{ if or (eq .Type "post") (eq .Type .Site.Params.postSectionName) }}
-        <ul class="post__meta">
+        {{ $topLikes := partial "likes/widget.html" (dict "Page" . "Position" "top") }}
+        <ul class="post__meta{{ if $topLikes }} post__meta--with-likes{{ end }}">
+          {{ with $topLikes }}
+            <li class="post__meta-item post__meta-item--likes">{{ . }}</li>
+          {{ end }}
           <li class="post__meta-item">
             <em class="fas fa-calendar-day post__meta-icon"></em>
             <span class="post__meta-text"
@@ -57,7 +61,7 @@
 
       {{ .Content }}
 
-      {{ partial "likes/widget.html" . }}
+      {{ partial "likes/widget.html" (dict "Page" . "Position" "bottom") }}
 
       {{- if isset .Params "series" -}}
         {{- partial "series.html" . -}}

@@ -1,13 +1,17 @@
 (() => {
   "use strict";
 
-  const widget = document.querySelector("[data-post-likes]");
+  const widgets = Array.from(document.querySelectorAll("[data-post-likes]"));
+  const widget = widgets[0];
   if (!widget) return;
 
-  const button = widget.querySelector(".post-likes__button");
-  const count = widget.querySelector("[data-like-count]");
-  const status = widget.querySelector(".post-likes__status");
-  const retry = widget.querySelector(".post-likes__retry");
+  const controls = widgets.map((widget) => ({
+    button: widget.querySelector(".post-likes__button"),
+    count: widget.querySelector("[data-like-count]"),
+    status: widget.querySelector(".post-likes__status"),
+    retry: widget.querySelector(".post-likes__retry"),
+  }));
+  let activeControl = controls[0];
   const storageKey = "wiigg.likes.visitorId";
   const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
   let visitorId;
@@ -106,25 +110,31 @@
 
   function render() {
     const liked = state?.liked ?? false;
-    button.setAttribute("aria-pressed", String(liked));
-    button.setAttribute("aria-busy", String(busy));
-    button.setAttribute("title", liked ? "Unlike" : "Like this article");
-    button.disabled = busy || !state || Boolean(retryAction);
-    count.hidden = !state || state.count === 0;
-    if (state) count.textContent = state.count.toLocaleString();
     const total = state ? `, ${state.count} ${state.count === 1 ? "like" : "likes"}` : "";
-    button.setAttribute("aria-label", `Like this article${total}`);
-    retry.hidden = !retryAction;
-    retry.disabled = busy;
+    for (const { button, count, retry } of controls) {
+      button.setAttribute("aria-pressed", String(liked));
+      button.setAttribute("aria-busy", String(busy));
+      button.setAttribute("title", liked ? "Unlike" : "Like this article");
+      button.disabled = busy || !state || Boolean(retryAction);
+      count.hidden = !state || state.count === 0;
+      if (state) count.textContent = state.count.toLocaleString();
+      button.setAttribute("aria-label", `Like this article${total}`);
+      retry.hidden = !retryAction;
+      retry.disabled = busy;
+    }
   }
 
   function showStatus(message, transient = false) {
     clearTimeout(statusTimer);
-    status.setAttribute("data-fading", "false");
-    status.textContent = message;
+    for (const { status } of controls) {
+      status.setAttribute("aria-live", status === activeControl.status ? "polite" : "off");
+      status.setAttribute("data-transient", String(transient));
+      status.setAttribute("data-fading", "false");
+      status.textContent = message;
+    }
     if (transient) {
       statusTimer = setTimeout(() => {
-        status.setAttribute("data-fading", "true");
+        for (const { status } of controls) status.setAttribute("data-fading", "true");
         statusTimer = setTimeout(() => {
           showStatus(temporaryIdentity ? "Your choice is remembered for this visit only." : "");
         }, 200);
@@ -184,12 +194,20 @@
     }
   }
 
-  button.addEventListener("click", () => {
-    if (state && !retryAction) void setLiked(!state.liked);
-  });
-  retry.addEventListener("click", () => {
-    if (retryAction) void retryAction();
-  });
-  widget.hidden = false;
+  for (const control of controls) {
+    control.button.addEventListener("click", () => {
+      if (state && !retryAction && !busy) {
+        activeControl = control;
+        void setLiked(!state.liked);
+      }
+    });
+    control.retry.addEventListener("click", () => {
+      if (retryAction && !busy) {
+        activeControl = control;
+        void retryAction();
+      }
+    });
+  }
+  for (const widget of widgets) widget.hidden = false;
   void load();
 })();
