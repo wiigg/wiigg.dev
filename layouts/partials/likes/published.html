@@ -1,0 +1,1 @@
+{{- return (and .IsPage (eq .Section "post") (not .Draft) (le .PublishDate now) (or .ExpiryDate.IsZero (gt .ExpiryDate now))) -}}

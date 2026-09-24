@@ -1,0 +1,107 @@
+.post-likes {
+  --like-accent: #a23c5a;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+  margin: 2.8rem 0 1rem;
+}
+
+.theme--dark .post-likes {
+  --like-accent: #f2a1b7;
+}
+
+.post-likes[hidden],
+.post-likes [hidden] {
+  display: none;
+}
+
+.post-likes__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.8rem 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: color 160ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.post-likes__button:hover:not(:disabled),
+.post-likes__button[aria-pressed="true"] {
+  color: var(--like-accent);
+}
+
+.post-likes__button:focus-visible,
+.post-likes__retry:focus-visible {
+  outline: 2px solid var(--like-accent);
+  outline-offset: 4px;
+}
+
+.post-likes__button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.post-likes__heart {
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: fill 160ms ease;
+}
+
+.post-likes__button[aria-pressed="true"] .post-likes__heart {
+  fill: currentColor;
+}
+
+.post-likes__count {
+  min-width: 1ch;
+  font-variant-numeric: tabular-nums;
+}
+
+.post-likes .post-likes__status {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  transition: opacity 200ms ease;
+}
+
+.post-likes__status[data-fading="true"] {
+  opacity: 0;
+}
+
+.post-likes__status:empty {
+  display: none;
+}
+
+.post-likes__retry {
+  min-height: 44px;
+  padding: 0.5rem 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 1.3rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-likes__button,
+  .post-likes__heart,
+  .post-likes__status {
+    transition: none;
+  }
+}

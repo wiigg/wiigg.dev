@@ -1,0 +1,24 @@
+name = "wiigg-likes"
+account_id = "5cc15e42a74e137a646c38e3e2dac449"
+main = "src/index.js"
+compatibility_date = "2026-09-24"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = false
+
+[vars]
+SITE_ORIGIN = "https://wiigg.dev"
+POSTS_URL = "https://wiigg.dev/likes.json"
+
+[[d1_databases]]
+binding = "LIKES_DB"
+database_name = "wiigg-likes"
+database_id = "07698432-55ae-49e2-9811-4237ee2f038f"
+migrations_dir = "migrations"
+
+[[ratelimits]]
+name = "LIKES_RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 10, period = 60 }

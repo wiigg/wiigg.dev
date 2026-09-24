@@ -1,0 +1,2 @@
+SITE_ORIGIN="http://localhost:1313"
+POSTS_URL="http://localhost:1313/likes.json"

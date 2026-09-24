@@ -1,0 +1,5 @@
+{{- $id := .Params.likesId | default .File.ContentBaseName -}}
+{{- if not (findRE `^[a-z0-9][a-z0-9-]{0,99}$` $id) -}}
+  {{- errorf "Invalid likesId %q in %s: use 1-100 lowercase letters, numbers or hyphens, starting with a letter or number" $id .File.Path -}}
+{{- end -}}
+{{- return $id -}}

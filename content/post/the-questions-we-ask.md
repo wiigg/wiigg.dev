@@ -2,6 +2,7 @@
 title: "The questions we ask"
 date: 2026-09-12T17:54:29+01:00
 draft: false
+likesId: "the-questions-we-ask"
 Description: "As AI gets better at producing answers, domain expertise helps us recognise which questions are worth asking and which results matter."
 Tags: [ai, expertise, research]
 Categories: [technology]

@@ -2,3 +2,11 @@ public
 resources/_gen/
 resources/_processed/
 .hugo_build.lock
+node_modules/
+.wrangler/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.env
+.env.*
+!.env.example

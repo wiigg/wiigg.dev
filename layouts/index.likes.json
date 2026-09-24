@@ -1,0 +1,11 @@
+{{- $ids := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- if partial "likes/published.html" . -}}
+    {{- $id := partial "likes/id.html" . -}}
+    {{- if in $ids $id -}}
+      {{- errorf "Duplicate likesId %q in %s" $id .File.Path -}}
+    {{- end -}}
+    {{- $ids = $ids | append $id -}}
+  {{- end -}}
+{{- end -}}
+{{- $ids | sort | jsonify -}}
