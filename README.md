@@ -58,6 +58,11 @@ PNG and ICO exports in sync with those originals when changing the branding.
 
 Published posts can show anonymous heart buttons before the date and reading time
 and after the article. Both controls share the same count and toggle state.
+The homepage shows a read-only heart and count before the date in each post's footer. These
+counts use public reads without accessing the visitor identifier or casting votes.
+The top article control and homepage counts reserve their space before loading,
+and their styles load in the document head to prevent layout shifts. Large totals
+are abbreviated visually, with the exact total available to screen readers.
 The Hugo site stays on GitHub Pages; `likes-api/` contains a Cloudflare Worker
 and a D1 database that store the likes. The only new development dependency is
 Cloudflare's Wrangler CLI, used to run, test and deploy the Worker; the deployed
@@ -96,7 +101,7 @@ npm run dev -- --var SITE_ORIGIN:http://localhost:1313 --var POSTS_URL:http://lo
 In another terminal at the repository root:
 
 ```sh
-node --test test/likes.test.cjs
+node --test test/*.test.cjs
 HUGO_PARAMS_LIKES_ENDPOINT=http://localhost:8787 hugo server
 ```
 
@@ -163,4 +168,7 @@ Commit both `go.mod` and `go.sum` so builds use the same theme release.
 The local `layouts/_default/single.html` overrides Anatole's article template
 to add the likes buttons. When updating the theme, compare it with the new
 upstream template and preserve both `likes/widget.html` partial calls, passing
-the page and the `top` or `bottom` position. The top call loads the shared assets.
+the page and the `top` or `bottom` position. The top call loads the article script.
+The local `layouts/index.html` adds the read-only `likes/count.html` partial and
+loads its script once per homepage page. Both likes stylesheets are registered
+through `params.customCss` so Anatole loads them before rendering the page.

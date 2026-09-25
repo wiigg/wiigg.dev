@@ -1,0 +1,10 @@
+{{- if and (partial "likes/published.html" .) .Site.Params.likes.endpoint -}}
+  {{- $id := partial "likes/id.html" . -}}
+  <span class="post-like-count" data-post-like-count data-post-id="{{ $id }}" data-endpoint="{{ .Site.Params.likes.endpoint }}" title="Like count unavailable">
+    <svg class="post-like-count__heart" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
+    </svg>
+    <span class="post-like-count__number" data-count-number aria-hidden="true"></span>
+    <span class="post-like-count__label" data-count-label>Like count unavailable.</span>
+  </span>
+{{- end -}}

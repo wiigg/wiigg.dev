@@ -46,6 +46,7 @@ enableRobotsTXT = true
   weight = 80
 
 [params]
+customCss = ["css/likes.css", "css/like-counts.css"]
 localizedDates = true
 indexDateFormat = "2 January 2006"
 singleDateFormat = "2 January 2006"

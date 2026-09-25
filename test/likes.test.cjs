@@ -94,10 +94,12 @@ test("first visit reads the public count without creating an identity", async ()
   const ui = harness({ replies: [response(12, false)] });
   assert.equal(ui.button.disabled, true);
   assert.equal(ui.count.hidden, true);
+  assert.equal(ui.status.attributes["data-status"], "loading");
   await flush();
   assert.equal(ui.widget.hidden, false);
   assert.equal(ui.count.textContent, "12");
   assert.equal(ui.button.disabled, false);
+  assert.equal(ui.status.textContent, "");
   assert.equal(ui.generatedIds, 0);
   assert.equal(ui.local.values.size, 0);
   assert.equal(ui.calls[0].headers["X-Visitor-ID"], undefined);
@@ -190,6 +192,7 @@ test("an initial failure shows no fabricated zero and can be retried", async () 
   assert.equal(ui.button.disabled, true);
   assert.equal(ui.retry.hidden, false);
   assert.equal(ui.status.textContent, "Likes are unavailable just now.");
+  assert.equal(ui.status.attributes["data-status"], "notice");
   ui.retry.click();
   await flush();
   assert.equal(ui.count.textContent, "7");

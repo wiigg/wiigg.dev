@@ -1,0 +1,56 @@
+.post__footer--summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.post__footer-date-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.post__footer--summary .post__footer-date {
+  margin: 0;
+}
+
+.post-like-count {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.post-like-count__heart {
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.post-like-count__number {
+  display: inline-block;
+  min-width: 2ch;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.post-like-count__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

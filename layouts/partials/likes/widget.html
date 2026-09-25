@@ -3,10 +3,6 @@
 {{- if and (partial "likes/published.html" $page) $page.Site.Params.likes.endpoint -}}
   {{- $id := partial "likes/id.html" $page -}}
   {{- $statusID := printf "post-likes-status-%s" $position -}}
-  {{- if eq $position "top" -}}
-    {{- $styles := resources.Get "css/likes.css" | minify | fingerprint -}}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" />
-  {{- end -}}
   <div class="post-likes post-likes--{{ $position }}" data-post-likes data-post-id="{{ $id }}" data-endpoint="{{ $page.Site.Params.likes.endpoint }}" hidden>
     <button class="post-likes__button" type="button" title="Like this article" aria-label="Like this article" aria-pressed="false" aria-describedby="{{ $statusID }}" disabled>
       <svg class="post-likes__heart" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">

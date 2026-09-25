@@ -20,6 +20,7 @@
   let busy = false;
   let retryAction;
   let statusTimer;
+  const compactCount = new Intl.NumberFormat("en-GB", { notation: "compact", maximumFractionDigits: 1 });
 
   try {
     const saved = localStorage.getItem(storageKey);
@@ -117,22 +118,22 @@
       button.setAttribute("title", liked ? "Unlike" : "Like this article");
       button.disabled = busy || !state || Boolean(retryAction);
       count.hidden = !state || state.count === 0;
-      if (state) count.textContent = state.count.toLocaleString();
+      if (state) count.textContent = state.count > 9999 ? compactCount.format(state.count) : state.count.toLocaleString("en-GB");
       button.setAttribute("aria-label", `Like this article${total}`);
       retry.hidden = !retryAction;
       retry.disabled = busy;
     }
   }
 
-  function showStatus(message, transient = false) {
+  function showStatus(message, kind = "notice") {
     clearTimeout(statusTimer);
     for (const { status } of controls) {
       status.setAttribute("aria-live", status === activeControl.status ? "polite" : "off");
-      status.setAttribute("data-transient", String(transient));
+      status.setAttribute("data-status", kind);
       status.setAttribute("data-fading", "false");
       status.textContent = message;
     }
-    if (transient) {
+    if (kind === "confirmation") {
       statusTimer = setTimeout(() => {
         for (const { status } of controls) status.setAttribute("data-fading", "true");
         statusTimer = setTimeout(() => {
@@ -145,14 +146,14 @@
   function announceChange() {
     let message = state.liked ? "Thanks for the like." : "Like removed.";
     if (temporaryIdentity) message += " Your choice is remembered for this visit only.";
-    showStatus(message, true);
+    showStatus(message, "confirmation");
   }
 
   async function load() {
     if (busy) return;
     busy = true;
     retryAction = undefined;
-    showStatus("Loading likes…");
+    showStatus("Loading likes…", "loading");
     render();
     try {
       state = await request();
